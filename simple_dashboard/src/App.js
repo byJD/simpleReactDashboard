@@ -4,9 +4,22 @@ import './App.css';
 
 // import Icon from './FirstChart'
 import BarChart from './BarChart'
+import SecondChart from './SecondChart'
+import BarChart2 from './BarChart2'
+import country  from './country'
 
+
+const   data = [
+  [10, 30, 40, 20],
+  [10, 40, 30, 20, 50, 10],
+  [60, 30, 40, 20, 30]
+]
 
 class App extends Component {
+
+
+  
+  
 
 
 state = {
@@ -23,9 +36,16 @@ state = {
     //  <h2>Simple Dashboard</h2>
      <div>
      <BarChart data={this.state.data} width={this.state.width} height={this.state.height} />
+     <SecondChart/>
+     <BarChart2 width={600} height={400} data={data} />
+     <country/>
      </div>
   )
   }
 }
 
 export default App;
+
+
+
+
