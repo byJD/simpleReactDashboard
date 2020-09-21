@@ -17,18 +17,6 @@ import BitcoinChart from './BitcoinChart'
 
 
 
-function RandomData() {
-  const data = [...Array(5)].map((e, i) => {
-    return {
-      x: Math.random() * 40,
-      y: Math.random() * 40,
-      temparature: Math.random() * 500
-    };
-  });
-  return data;
-}
-
-const data = RandomData()
 
 class App extends Component {
 
@@ -64,15 +52,6 @@ class App extends Component {
     });
   }
 
-
-   
-    // state = {
-    //   data1: [12, 5, 6, 6, 9, 10],
-    //   width: 700,
-    //   height: 500,
-    //   id: "root"
-    //   }
-
     render() {
       const { data } = this.state;
       
@@ -84,23 +63,24 @@ class App extends Component {
         <h2 style={{ textAlign: "center" }}>
           Scatter plot
         </h2>
-        <SecondChart/>
+        <SecondChart/>  {/*scatter plot */}
+ 
       
   
         <h2 style={{ textAlign: "center" }}>
             Pie Chart
         </h2>
-        <SimplePieChart />
+        <SimplePieChart />  {/*pie chart */}
 
         <h2 style={{ textAlign: "center" }}>
           30 day Bitcoin Price Chart
         </h2>
-        <BitcoinChart data={data} />
+        <BitcoinChart data={data} />  {/*bitcoin plot */}
 
         <h2 style={{ textAlign: "center" }}>
             Bar chart
         </h2>
-        <BarChart3/>
+        <BarChart3/>  {/* bar chart */}
   
         </div>
         
