@@ -40,6 +40,7 @@ class App extends Component {
   }
 
 
+
   //get API data for Bitcoin price
   componentDidMount() {
     fetch(`https://api.coindesk.com/v1/bpi/historical/close.json`)
@@ -57,6 +58,7 @@ class App extends Component {
      .catch(error => console.log(error));
   }
 
+   
     // state = {
     //   data1: [12, 5, 6, 6, 9, 10],
     //   width: 700,
@@ -76,8 +78,12 @@ class App extends Component {
       {/* <BarChart2 width={600} height={400} data={data} /> */}
       <country/>
       <SimplePieChart />
+      <h2 style={{ textAlign: "center" }}>
+         30 day Bitcoin Price Chart
+       </h2>
       <BitcoinChart data={data} />
       <BarChart3/>
+      
       <Pie
             data={data}
             width={200}

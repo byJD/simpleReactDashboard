@@ -4,19 +4,57 @@ import './App.css'
 import { scaleLinear } from 'd3-scale'
 import { extent } from 'd3-array'
 import { select } from 'd3-selection'
+import {csv} from 'd3-request';
+
 
 import * as d3 from 'd3'
 
 function RandomData() {
     const data = [...Array(200)].map((e, i) => {
       return {
-        x: Math.random() * 40,
-        y: Math.random() * 40,
-        temparature: Math.random() * 500
+        x: 100,
+        y: 100
+        // temparature: Math.random() * 500 //maybe this is intensity?
       };
     });
     return data;
   }
+
+  function DataFromFile(){
+
+    d3.csv("./housing.csv", function(d) {
+        return {
+            longitude: +d.longitude,
+            latitude: +d.latitude
+        };
+    }).then(function(data){
+        console.log(data[0]);
+    });
+
+
+    console.log(data[1]);
+
+
+
+    }
+
+    // d3.csv("/data/employees.csv", function(data) {
+    //     console.log(data);
+    // });
+
+
+    // d3.csv("test.csv", function(d) {
+    //     return {
+    //       city : d.city,
+    //       state : d.state,
+    //       population : +d.population,
+    //       land_area : +d["land area"]
+    //     };
+    //   }).then(function(data) {
+    //     console.log(data[0]);
+    //   });
+
+  
 
   function X_Axies({ yScale, width }) {
     const axis = yScale.ticks(5).map((d, i) => (
@@ -70,7 +108,8 @@ function RandomData() {
         left: 40,
         right: 40
       };
-  
+
+    DataFromFile()
     const width = w - margin.right - margin.left,
       height = h - margin.top - margin.bottom;
   
