@@ -9,11 +9,20 @@ import {csv} from 'd3-request';
 
 import * as d3 from 'd3'
 
+function storeCoordinate(xVal, yVal, array) {
+    array.push({x: xVal, y: yVal});
+}
+
+function coordinate(x, y) {
+    this.x = x;
+    this.y = y;
+}
+
 function RandomData() {
     const data = [...Array(200)].map((e, i) => {
       return {
-        x: 100,
-        y: 100
+        x: Math.random() * 40,
+        y: Math.random() * 40
         // temparature: Math.random() * 500 //maybe this is intensity?
       };
     });
@@ -24,19 +33,19 @@ function RandomData() {
 
     d3.csv("./housing.csv", function(d) {
         return {
-            longitude: +d.longitude,
-            latitude: +d.latitude
+          x : d.longitude,
+          y : d.latitude,
         };
-    }).then(function(data){
-        console.log(data[0]);
-    });
+      }).then(function(data) {
+        console.log(data[4]);
+     
+      });
 
 
-    console.log(data[1]);
+      
+  }
+  
 
-
-
-    }
 
     // d3.csv("/data/employees.csv", function(data) {
     //     console.log(data);
@@ -97,8 +106,13 @@ function RandomData() {
     ));
     return <>{axis}</>;
   }
+
+  
   
   function Scatter() {
+    
+    
+
     const data = RandomData(),
       w = 600,
       h = 600,

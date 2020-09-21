@@ -56,7 +56,14 @@ class App extends Component {
       });
     })
      .catch(error => console.log(error));
+     d3.csv("./housing.csv", function(d) {
+      return {
+        x : d.longitude,
+        y : d.latitude,
+      };
+    });
   }
+
 
    
     // state = {
@@ -67,34 +74,39 @@ class App extends Component {
     //   }
 
     render() {
-    const { data } = this.state;
-    return (
-      //  <div className='App'>
-      //  <div className='App-header'>
-      //  <h2>Simple Dashboard</h2>
-      <div>
-      {/* <BarChart data={this.state.data1} width={this.state.width} height={this.state.height} /> */}
-      <SecondChart/>
-      {/* <BarChart2 width={600} height={400} data={data} /> */}
-      <country/>
-      <SimplePieChart />
-      <h2 style={{ textAlign: "center" }}>
-         30 day Bitcoin Price Chart
-       </h2>
-      <BitcoinChart data={data} />
-      <BarChart3/>
+      const { data } = this.state;
       
-      <Pie
-            data={data}
-            width={200}
-            height={200}
-            innerRadius={60}
-            outerRadius={100}
-          />
-      </div>
       
-    )
-  }
+      return (
+   
+        <div className='Graphs'>
+      
+        <h2 style={{ textAlign: "center" }}>
+          Scatter plot
+        </h2>
+        <SecondChart/>
+      
+  
+        <h2 style={{ textAlign: "center" }}>
+            Pie Chart
+        </h2>
+        <SimplePieChart />
+
+        <h2 style={{ textAlign: "center" }}>
+          30 day Bitcoin Price Chart
+        </h2>
+        <BitcoinChart data={data} />
+
+        <h2 style={{ textAlign: "center" }}>
+            Bar chart
+        </h2>
+        <BarChart3/>
+  
+        </div>
+        
+      )
+
+    }
 };
 
 export default App;
