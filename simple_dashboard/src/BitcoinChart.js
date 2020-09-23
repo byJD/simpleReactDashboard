@@ -1,5 +1,9 @@
-import React from "react";
+
+import React, {Component} from 'react'
+import './App.css'
 import * as d3 from "d3";
+
+
 const width = 650;
 const height = 400;
 const margin = {
@@ -8,7 +12,7 @@ const margin = {
   bottom: 50,
   left: 60
 };
-class Chart extends React.Component {
+class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {

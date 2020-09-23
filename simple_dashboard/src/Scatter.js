@@ -18,17 +18,18 @@ function coordinate(x, y) {
     this.y = y;
 }
 
+//get random data to plot
 function RandomData() {
     const data = [...Array(200)].map((e, i) => {
       return {
         x: Math.random() * 40,
         y: Math.random() * 40
-        // temparature: Math.random() * 500 //maybe this is intensity?
       };
     });
     return data;
   }
 
+  //failed attempt at reading data. Couldn't figure out how to parse it into an array like RandomData()
   function DataFromFile(){
 
     d3.csv("./housing.csv", function(d) {
@@ -37,8 +38,7 @@ function RandomData() {
           y : d.latitude,
         };
       }).then(function(data) {
-        console.log(data[4]);
-     
+        console.log(data[0]);
       });
 
 
@@ -111,8 +111,6 @@ function RandomData() {
   
   function Scatter() {
     
-    
-
     const data = RandomData(),
       w = 600,
       h = 600,
@@ -123,7 +121,7 @@ function RandomData() {
         right: 40
       };
 
-    DataFromFile()
+    // DataFromFile()
     const width = w - margin.right - margin.left,
       height = h - margin.top - margin.bottom;
   

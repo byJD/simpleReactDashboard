@@ -5,13 +5,10 @@ import logo from './logo.svg';
 import './App.css';
 import * as d3 from "d3";
 
-// import Icon from './FirstChart'
-import BarChart from './BarChart'
-import SecondChart from './SecondChart'
-import BarChart2 from './BarChart2'
-import country  from './country'
-import Pie from './PieChart'
-import { SimplePieChart } from "./SimplePieChart"
+
+
+import Scatter from './Scatter'
+import SimplePieChart from "./SimplePieChart"
 import BarChart3 from './BarChart3'
 import BitcoinChart from './BitcoinChart'
 
@@ -63,7 +60,7 @@ class App extends Component {
         <h2 style={{ textAlign: "center" }}>
           Scatter plot
         </h2>
-        <SecondChart/>  {/*scatter plot */}
+        <Scatter/>  {/*scatter plot */}
  
       
   

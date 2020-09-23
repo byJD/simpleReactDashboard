@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, {Component} from 'react'
+import './App.css'
 import * as d3 from "d3";
 
 const data = [1, 2, 3, 4];
@@ -34,3 +35,5 @@ const Slice = props => {
     return <path d={arc(slice)} fill={sliceColor} />;
   });
 };
+
+export default SimplePieChart

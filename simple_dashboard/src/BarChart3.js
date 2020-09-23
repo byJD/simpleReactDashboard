@@ -2,18 +2,16 @@
 import React, {Component} from 'react'
 import './App.css'
 
-import { scaleLinear } from 'd3-scale'
-import { extent } from 'd3-array'
-import { select } from 'd3-selection'
-
 import * as d3 from 'd3'
 
 //using React to draw the chart, and D3 for the calculations 
 
+
+
 class BarChart3 extends Component {
 
     componentDidMount() {
-        const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+        const data = [12, 31, 22, 17, 25, 18, 29, 14, 9];
 
         const w = 600;
         const h = 300;
@@ -27,7 +25,7 @@ class BarChart3 extends Component {
 
         svg
         .selectAll("rect")
-        .data(dataset)
+        .data(data)
         .enter()
         .append("rect")
         .attr("fill", "navy")
@@ -43,7 +41,7 @@ class BarChart3 extends Component {
 
         svg
         .selectAll("text")
-        .data(dataset)
+        .data(data)
         .enter()
         .append("text")
         .style("font-size", 18)
@@ -51,6 +49,9 @@ class BarChart3 extends Component {
         .attr("x", (d, i) => i * 60)
         .attr("y", (d, i) => h - 7 * d - 3)
         .text(d => d);
+
+
+
     }
     render() {
         const styles = {
@@ -61,7 +62,6 @@ class BarChart3 extends Component {
         };
         return (
         <div ref="chart" style={styles.container}>
-
         </div>
         );
     }
